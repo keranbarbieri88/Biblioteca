@@ -8,6 +8,7 @@ public class AlunoFormularioDTO {
 	private String ra;
 	@NotNull
 	private String nome;
+	private String champson;
 
 	public String getRa() {return ra;}
 	public String getNome() {
