@@ -6,13 +6,16 @@ public class EmprestimoFormularioDTO {
 
 	private Integer idAluno;
 	private Integer idLivro;
-	private Date dataAluguel;
-	private Date dataDevolucao;
+	private Date dataEntrega;
+
 
 	public Integer getIdAluno() {
 		return idAluno;
 	}
 	public Integer getIdLivro() {
 		return idLivro;
+	}
+	public Date getDataEntrega() {
+		return dataEntrega;
 	}
 }

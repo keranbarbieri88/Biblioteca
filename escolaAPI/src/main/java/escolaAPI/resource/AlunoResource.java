@@ -55,8 +55,7 @@ public class AlunoResource {
 	@PutMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public String alterar(@PathVariable("id") Integer id,@RequestBody  AlunoFormularioDTO aluno){
-		Optional<Aluno> alunoBanco =
-				this.alunoRepository.findById(id);
+		Optional<Aluno> alunoBanco = this.alunoRepository.findById(id);
 		Aluno entidade = alunoBanco.get();
 		entidade.setNome(aluno.getNome());
 		entidade.setRa(aluno.getRa());

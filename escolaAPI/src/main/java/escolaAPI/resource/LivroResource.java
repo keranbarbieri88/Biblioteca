@@ -1,5 +1,6 @@
 package escolaAPI.resource;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,7 @@ public class LivroResource {
 		Livro entidade  =  new Livro();
 		entidade.setTitulo(livro.getTitulo());
 		entidade.setAutor(livro.getAutor());
-		entidade.setStatus(Status.Disponivel);
+		entidade.setStatus(Status.Disponível);
 		this.livroRepository.save(entidade);
 		
 		return "Livro cadastrado com sucesso!";
@@ -56,12 +57,18 @@ public class LivroResource {
 	@PutMapping("/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public String alterar(@PathVariable("id") Integer id,@RequestBody  LivroFormularioDTO livro){
-		Optional<Livro> alunoBanco =
+		Optional<Livro> livroBanco =
 				this.livroRepository.findById(id);
-		Livro entidade = alunoBanco.get();
+		Livro entidade = livroBanco.get();
 		entidade.setAutor(livro.getAutor());
 		entidade.setTitulo(livro.getTitulo());
 		this.livroRepository.save(entidade);
 		return "Livro alterado com Sucesso!";
+	}
+	
+	@GetMapping("/livros-disponiveis")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Livro> getTodosLivrosAtivos(){
+		return this.livroRepository.BuscaLivrosAtivos();
 	}
 }

@@ -18,6 +18,12 @@ public class LivroFormularioDTO {
 	public String getAutor() {
 		return autor;
 	}
+	public Status getStatus() {
+		return status;
+	}
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 
 	
 }
